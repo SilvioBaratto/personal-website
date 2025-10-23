@@ -6,7 +6,7 @@ let b: any;
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Initialize BAML client on first request
   if (!b) {
-    const bamlModule = await import('./baml_client/async_client');
+    const bamlModule = await import('./_baml');
     b = bamlModule.b;
   }
   // Only allow POST
