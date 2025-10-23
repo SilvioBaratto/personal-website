@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { b } from '../baml_client/index.js';
+import { b } from '../baml_client/async_client';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Only allow POST
