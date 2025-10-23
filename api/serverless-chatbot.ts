@@ -1,7 +1,14 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { b } from '../baml_client/async_client';
+
+// Dynamic import for BAML client to handle ES module in Vercel
+let b: any;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Initialize BAML client on first request
+  if (!b) {
+    const bamlModule = await import('../baml_client/async_client');
+    b = bamlModule.b;
+  }
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
