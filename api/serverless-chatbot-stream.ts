@@ -54,6 +54,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       res.write('data: [DONE]\n\n');
       res.end();
+      return;
     } catch (streamError) {
       const errorData = {
         error: 'Streaming failed',
@@ -61,6 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       };
       res.write(`data: ${JSON.stringify(errorData)}\n\n`);
       res.end();
+      return;
     }
   } catch (error) {
     console.error('Chatbot streaming error:', error);
