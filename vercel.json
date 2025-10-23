@@ -1,15 +1,18 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "dist/silviobaratto/server/server.mjs",
-      "use": "@vercel/node"
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": null,
+  "outputDirectory": "dist/silviobaratto/browser",
+  "functions": {
+    "api/index.js": {
+      "memory": 1024,
+      "maxDuration": 10
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "dist/silviobaratto/server/server.mjs"
+      "source": "/(.*)",
+      "destination": "/api/index"
     }
   ]
 }
