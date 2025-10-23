@@ -7,7 +7,7 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
-import { b } from '../baml_client/index.js';
+import { b } from './baml_client/index.js';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
