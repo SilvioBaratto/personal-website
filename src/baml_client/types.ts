@@ -67,14 +67,6 @@ export interface ConversationContext {
   
 }
 
-export interface Resume {
-  name: string
-  email: string
-  experience: string[]
-  skills: string[]
-  
-}
-
 export interface StreamingChatResponse {
   answer: string
   category: QuestionCategory

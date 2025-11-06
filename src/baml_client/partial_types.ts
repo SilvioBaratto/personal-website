@@ -20,7 +20,7 @@ $ pnpm add @boundaryml/baml
 
 import type { Image, Audio, Pdf, Video } from "@boundaryml/baml"
 import type { Checked, Check } from "./types"
-import type {  ConversationContext,  QuestionCategory,  Resume,  StreamingChatResponse } from "./types"
+import type {  ConversationContext,  QuestionCategory,  StreamingChatResponse } from "./types"
 import type * as types from "./types"
 
 /******************************************************************************
@@ -41,12 +41,6 @@ export namespace partial_types {
       mentioned_companies: string[]
       mentioned_technologies: string[]
       user_interest_area?: types.QuestionCategory | null
-    }
-    export interface Resume {
-      name?: string | null
-      email?: string | null
-      experience: string[]
-      skills: string[]
     }
     export interface StreamingChatResponse {
       answer: string

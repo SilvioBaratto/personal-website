@@ -24,7 +24,7 @@ import { toBamlError, BamlStream, BamlAbortError, Collector } from "@boundaryml/
 import type { Checked, Check, RecursivePartialNull as MovedRecursivePartialNull } from "./types"
 import type { partial_types } from "./partial_types"
 import type * as types from "./types"
-import type {ConversationContext, QuestionCategory, Resume, StreamingChatResponse} from "./types"
+import type {ConversationContext, QuestionCategory, StreamingChatResponse} from "./types"
 import type TypeBuilder from "./type_builder"
 import { AsyncHttpRequest, AsyncHttpStreamRequest } from "./async_request"
 import { LlmResponseParser, LlmStreamParser } from "./parser"
@@ -96,54 +96,6 @@ export type RecursivePartialNull<T> = MovedRecursivePartialNull<T>
         }
 
         
-        async ExtractResume(
-        resume: string,
-        __baml_options__?: BamlCallOptions<never>
-        ): Promise<types.Resume> {
-          try {
-          const options = { ...this.bamlOptions, ...(__baml_options__ || {}) }
-          const signal = options.signal;
-
-          if (signal?.aborted) {
-          throw new BamlAbortError('Operation was aborted', signal.reason);
-          }
-
-          // Check if onTick is provided - route through streaming if so
-          if (options.onTick) {
-          const stream = this.stream.ExtractResume(
-          resume,
-          __baml_options__
-          );
-
-          return await stream.getFinalResponse();
-          }
-
-          const collector = options.collector ? (Array.isArray(options.collector) ? options.collector :
-          [options.collector]) : [];
-          const rawEnv = __baml_options__?.env ? { ...process.env, ...__baml_options__.env } : { ...process.env };
-          const env: Record<string, string> = Object.fromEntries(
-            Object.entries(rawEnv).filter(([_, value]) => value !== undefined) as [string, string][]
-            );
-            const raw = await this.runtime.callFunction(
-            "ExtractResume",
-            {
-            "resume": resume
-            },
-            this.ctxManager.cloneContext(),
-            options.tb?.__tb(),
-            options.clientRegistry,
-            collector,
-            options.tags || {},
-            env,
-            signal,
-            options.watchers,
-            )
-            return raw.parsed(false) as types.Resume
-            } catch (error) {
-            throw toBamlError(error);
-            }
-            }
-            
         async StreamChatWithSilvio(
         user_question: string,conversation_history?: string[] | null,context?: types.ConversationContext | null,
         __baml_options__?: BamlCallOptions<never>
@@ -206,72 +158,6 @@ export type RecursivePartialNull<T> = MovedRecursivePartialNull<T>
             }
 
             
-            ExtractResume(
-            resume: string,
-            __baml_options__?: BamlCallOptions<never>
-            ): BamlStream<partial_types.Resume, types.Resume>
-              {
-              try {
-              const options = { ...this.bamlOptions, ...(__baml_options__ || {}) }
-              const signal = options.signal;
-
-              if (signal?.aborted) {
-              throw new BamlAbortError('Operation was aborted', signal.reason);
-              }
-
-              let collector = options.collector ? (Array.isArray(options.collector) ? options.collector :
-              [options.collector]) : [];
-
-              let onTickWrapper: (() => void) | undefined;
-
-              // Create collector and wrap onTick if provided
-              if (options.onTick) {
-              const tickCollector = new Collector("on-tick-collector");
-              collector = [...collector, tickCollector];
-
-              onTickWrapper = () => {
-              const log = tickCollector.last;
-              if (log) {
-              try {
-              options.onTick!("Unknown", log);
-              } catch (error) {
-              console.error("Error in onTick callback for ExtractResume", error);
-              }
-              }
-              };
-              }
-
-              const rawEnv = __baml_options__?.env ? { ...process.env, ...__baml_options__.env } : { ...process.env };
-              const env: Record<string, string> = Object.fromEntries(
-                Object.entries(rawEnv).filter(([_, value]) => value !== undefined) as [string, string][]
-                );
-                const raw = this.runtime.streamFunction(
-                "ExtractResume",
-                {
-                "resume": resume
-                },
-                undefined,
-                this.ctxManager.cloneContext(),
-                options.tb?.__tb(),
-                options.clientRegistry,
-                collector,
-                options.tags || {},
-                env,
-                signal,
-                onTickWrapper,
-                )
-                return new BamlStream<partial_types.Resume, types.Resume>(
-                  raw,
-                  (a): partial_types.Resume => a,
-                  (a): types.Resume => a,
-                  this.ctxManager.cloneContext(),
-                  options.signal,
-                  )
-                  } catch (error) {
-                  throw toBamlError(error);
-                  }
-                  }
-                  
             StreamChatWithSilvio(
             user_question: string,conversation_history?: string[] | null,context?: types.ConversationContext | null,
             __baml_options__?: BamlCallOptions<never>

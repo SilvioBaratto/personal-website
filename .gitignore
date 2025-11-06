@@ -41,4 +41,26 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment variables and secrets
 .env
+.env.local
+.env.development
+.env.test
+.env.production
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.*
+credentials.*
+
+# Vercel
+.vercel
+
+# Large media files
+video.mov
+video.gif
+video_compressed.mp4
+*.mov
+# Note: demo.gif is small enough (8.76 MB) to commit for README

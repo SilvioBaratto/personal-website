@@ -29,8 +29,6 @@ export default class TypeBuilder {
     
     ConversationContext: ClassViewer<'ConversationContext', "previous_topic" | "mentioned_companies" | "mentioned_technologies" | "user_interest_area">;
     
-    Resume: ClassViewer<'Resume', "name" | "email" | "experience" | "skills">;
-    
     StreamingChatResponse: ClassViewer<'StreamingChatResponse', "answer" | "category" | "sources" | "urls" | "follow_up_suggestions">;
     
     
@@ -40,7 +38,7 @@ export default class TypeBuilder {
     constructor() {
         this.tb = new _TypeBuilder({
           classes: new Set([
-            "ConversationContext","Resume","StreamingChatResponse",
+            "ConversationContext","StreamingChatResponse",
           ]),
           enums: new Set([
             "QuestionCategory",
@@ -50,10 +48,6 @@ export default class TypeBuilder {
         
         this.ConversationContext = this.tb.classViewer("ConversationContext", [
           "previous_topic","mentioned_companies","mentioned_technologies","user_interest_area",
-        ]);
-        
-        this.Resume = this.tb.classViewer("Resume", [
-          "name","email","experience","skills",
         ]);
         
         this.StreamingChatResponse = this.tb.classViewer("StreamingChatResponse", [

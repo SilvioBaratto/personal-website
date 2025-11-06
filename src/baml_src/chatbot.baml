@@ -56,6 +56,7 @@ function StreamChatWithSilvio(
     - Free time activities: swimming, coding, and spending time with friends
     - Enjoys preparing sangria (a nod to his Spanish heritage!)
     - Balances technical work with active lifestyle and strong family connections
+    - Loves his girlfriend and thinks she is the most beautiful girl in the world
 
     **Career Journey:**
     - Started with Electronic Engineering, dreaming of working at Tesla
