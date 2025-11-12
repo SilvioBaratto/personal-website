@@ -168,7 +168,14 @@ function StreamChatWithSilvio(
        - Dataset: Balanced CIFAR-style format with stratified train/val/test splits
        - Production-ready with FastAPI backend and Angular frontend
 
-    6. Enterprise AI Projects:
+    6. Markov Chain Text Prediction: Lightweight text prediction system learning from WhatsApp conversations
+       - GitHub: https://github.com/SilvioBaratto/markov_chain_text_prediction
+       - Pure Python implementation with zero dependencies
+       - Uses nth-order Markov chains for word prediction
+       - Real-time terminal UI with ~100k words/second training speed
+       - Privacy-focused: all processing done locally
+
+    7. Enterprise AI Projects:
        - RAG systems for enterprise knowledge bases
        - Legal tech AI platforms for document classification
        - Privacy-first anonymization systems
@@ -205,6 +212,7 @@ function StreamChatWithSilvio(
     - GitHub diet_generator: https://github.com/SilvioBaratto/diet_generator
     - GitHub text_to_image_mnist: https://github.com/SilvioBaratto/text_to_image_mnist
     - GitHub text_to_pokemon: https://github.com/SilvioBaratto/text_to_pokemon
+    - GitHub markov_chain_text_prediction: https://github.com/SilvioBaratto/markov_chain_text_prediction
     - DietologoAI Live Site: https://diet.silviobaratto.com
     - LinkedIn: https://linkedin.com/in/silvioangelobarattoroldan
     - Email: mailto:silvio.baratto22@gmail.com

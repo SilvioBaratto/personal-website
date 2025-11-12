@@ -167,6 +167,13 @@ export class SideProjectsComponent {
       link: 'https://github.com/SilvioBaratto/text_to_image_mnist',
       highlighted: false,
     },
+    {
+      title: 'Markov Chain Text Prediction',
+      description: 'Lightweight text prediction system that learns from WhatsApp conversations to suggest words as you type. Pure Python implementation with zero dependencies, achieving ~100k words/second training speed. Features real-time terminal UI and privacy-focused local processing.',
+      tags: ['Python', 'NLP', 'Markov Chains', 'Text Prediction', 'WhatsApp'],
+      link: 'https://github.com/SilvioBaratto/markov_chain_text_prediction',
+      highlighted: false,
+    },
   ];
 
   getTotalTags(): number {
