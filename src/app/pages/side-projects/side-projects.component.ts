@@ -134,6 +134,13 @@ interface Project {
 export class SideProjectsComponent {
   projects: Project[] = [
     {
+      title: 'Formula 1 Championship Prediction',
+      description: 'ML system forecasting F1 World Championship outcomes using official telemetry data. Combines Bayesian variance decomposition, 10,000+ Monte Carlo simulations, and ensemble ML (Random Forest, Gradient Boosting, SVM). Features 50+ engineered features, track classification, and hybrid predictions with confidence intervals.',
+      tags: ['FastAPI', 'Angular 19', 'FastF1 API', 'Bayesian ML', 'Monte Carlo', 'Docker'],
+      link: 'https://github.com/SilvioBaratto/formula_1_championship_prediction',
+      highlighted: true,
+    },
+    {
       title: 'Roldan Hedge Fund',
       description: 'Quantitative portfolio optimization platform combining AI-powered stock analysis (6-factor evaluation) with multi-strategy optimization. Implements Mean-Variance, Black-Litterman with AI views, Risk Parity, HRP, and CVaR optimization. Features macro regime analysis and institutional-grade constraints.',
       tags: ['FastAPI', 'BAML', 'Riskfolio-Lib', 'SQLAlchemy', 'Supabase', 'Quant Finance'],

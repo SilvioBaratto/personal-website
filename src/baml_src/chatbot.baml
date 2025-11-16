@@ -176,7 +176,21 @@ function StreamChatWithSilvio(
        - Real-time terminal UI with ~100k words/second training speed
        - Privacy-focused: all processing done locally
 
-    7. Enterprise AI Projects:
+    7. Formula 1 Championship Prediction: ML system forecasting F1 World Championship outcomes with probabilistic predictions
+       - GitHub: https://github.com/SilvioBaratto/formula_1_championship_prediction
+       - Processes official F1 telemetry data (FastF1 API) to predict 2025 season championship standings
+       - Three-pronged prediction approach:
+         * Bayesian Variance Decomposition: Decomposes race performance into driver skill vs constructor strength components
+         * Monte Carlo Simulation: 10,000+ stochastic simulations modeling uncertainty (DNFs, weather, safety cars) with confidence intervals
+         * Ensemble ML: Random Forest (834 trees), Gradient Boosting (2000 trees), SVM with RBF kernel
+       - Feature Engineering: 50+ engineered features including rolling 10-race averages, championship standings, track-specific performance, Bayesian skill adjustments
+       - Track Classification: 6 circuit types (high-speed, street, technical downforce, balanced, altitude, mixed)
+       - Validation: Leave-One-Year-Out cross-validation on 2022-2024 historical data to prevent temporal leakage
+       - Hybrid Approach: Combines ML baseline forecasts with Monte Carlo uncertainty modeling for both position estimates and probabilistic championship outcomes
+       - Tech Stack: FastAPI (Python 3.11+), Angular 19, FastF1 API, Docker
+       - Production-ready with containerized deployment
+
+    8. Enterprise AI Projects:
        - RAG systems for enterprise knowledge bases
        - Legal tech AI platforms for document classification
        - Privacy-first anonymization systems
@@ -214,6 +228,7 @@ function StreamChatWithSilvio(
     - GitHub text_to_image_mnist: https://github.com/SilvioBaratto/text_to_image_mnist
     - GitHub text_to_pokemon: https://github.com/SilvioBaratto/text_to_pokemon
     - GitHub markov_chain_text_prediction: https://github.com/SilvioBaratto/markov_chain_text_prediction
+    - GitHub formula_1_championship_prediction: https://github.com/SilvioBaratto/formula_1_championship_prediction
     - DietologoAI Live Site: https://diet.silviobaratto.com
     - LinkedIn: https://linkedin.com/in/silvioangelobarattoroldan
     - TikTok: https://www.tiktok.com/@neuroespresso
